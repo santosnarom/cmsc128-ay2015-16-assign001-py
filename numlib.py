@@ -85,6 +85,8 @@ def numToWords(num):    #convert a whole number to words
             
         #end of for loop
 
+#########################################################################
+
 import re
 
 ## Words to Numbers ##
@@ -120,8 +122,24 @@ def wordsToNum(word):
     accumulator = accumulator + previous
     
     if failed == False:
-        print(accumulator)
-
+        return accumulator
     
-                
+#############################################################
 
+import re                
+
+## Words to Currency ##
+def wordsToCurrency(word, currency):
+
+    num = wordsToNum(word)
+
+    if re.search('(USD|JPY|PHP)', currency):
+        return currency + str(num)
+    else:
+        print("Error: Invalid currency")
+
+
+
+
+
+        
