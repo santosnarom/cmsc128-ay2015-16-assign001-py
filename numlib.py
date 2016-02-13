@@ -82,8 +82,6 @@ def numToWords(num):    #convert a whole number to words
                 print(ones[place])
 
             position = position - 1
-            
-        #end of for loop
 
 #########################################################################
 
@@ -137,6 +135,25 @@ def wordsToCurrency(word, currency):
         return currency + str(num)
     else:
         print("Error: Invalid currency")
+
+##############################################################
+
+## Numbers Delimited ##
+def numberDelimited(num, delimiter, position):
+
+    num = str(num)
+    position = len(num) - position
+    dnum = ""
+
+    for digit in num:
+        if position == 0:
+            dnum = dnum + delimiter
+        dnum = dnum + digit
+        position = position - 1
+
+    return dnum
+
+##############################################################
 
 
 
