@@ -4,7 +4,11 @@
 # Number to Words 
 # Words to Numbers 
 # Words to Currency 
-# Numbers Delimited 
+# Numbers Delimited
+
+#####################################################################################################
+#####################################################################################################
+
 
 ## Numbers to Words ##
 def numToWords(num):    #convert a whole number to words
@@ -82,8 +86,11 @@ def numToWords(num):    #convert a whole number to words
                 print(ones[place])
 
             position = position - 1
+            
 
-#########################################################################
+#####################################################################################################
+#####################################################################################################
+            
 
 import re
 
@@ -100,11 +107,18 @@ def wordsToNum(word):
 
     #initializations
     chars = word.split()
+    #total is saved here
     accumulator = 0
-    previous = 0
+    #previous int is saved here
+    previous = 0    
     failed = False
-
-    for char in chars:   
+    
+    #general algo: if one,two,three,four, nineteen, etc -> add to previous
+    #              if thousand, million -> multiply to previous, add to accumuator, clear previous
+    #              if hundred ->  multiply to previous
+    
+    #iterates for each character in the string
+    for char in chars:
         if re.search('(thousand|million)', char):
             previous = previous * words[char]
             accumulator = accumulator + previous
@@ -118,42 +132,62 @@ def wordsToNum(word):
                 print('Unknown character: ' + char)
                 failed = True
     accumulator = accumulator + previous
-    
+
+    #for error handling
     if failed == False:
         return accumulator
     
-#############################################################
+    return "Conversion Failed"
+    
+    
+#####################################################################################################
+#####################################################################################################
 
+    
 import re                
 
 ## Words to Currency ##
 def wordsToCurrency(word, currency):
 
+    #call wordsToNum() function for conversion
     num = wordsToNum(word)
 
+    #check if currency is cirrect
     if re.search('(USD|JPY|PHP)', currency):
+        #return concatenated version
         return currency + str(num)
+    #error handling
     else:
         print("Error: Invalid currency")
+        
 
-##############################################################
+#####################################################################################################
+#####################################################################################################
+        
 
 ## Numbers Delimited ##
 def numberDelimited(num, delimiter, position):
 
     num = str(num)
     position = len(num) - position
+    #delimited number
     dnum = ""
 
+    #iterate for each digit in num string
     for digit in num:
+        #if position to insert delimiter is reached
         if position == 0:
+            #add the delimiter
             dnum = dnum + delimiter
+        #add the digit to the dnum string
         dnum = dnum + digit
         position = position - 1
-
+    #return delimited num
     return dnum
 
-##############################################################
+
+#####################################################################################################
+#####################################################################################################
 
 
 
