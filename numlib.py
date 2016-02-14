@@ -97,7 +97,7 @@ def numToWords(num):    #convert a whole number to words
 import re
 
 ## Words to Numbers ##
-def wordsToNum(word):
+def wordsToNum(word):   #convert words to whole number
 
     #dictionary of word-to-value mapping
     words = {'zero' : 0, 'one' : 1, 'two' : 2, 'three' : 3, 'four' : 4, 'five' : 5, 'six' : 6,
@@ -149,7 +149,7 @@ def wordsToNum(word):
 import re                
 
 ## Words to Currency ##
-def wordsToCurrency(word, currency):
+def wordsToCurrency(word, currency):    #convert to words then add currency
 
     #call wordsToNum() function for conversion
     num = wordsToNum(word)
@@ -168,12 +168,20 @@ def wordsToCurrency(word, currency):
         
 
 ## Numbers Delimited ##
-def numberDelimited(num, delimiter, position):
+def numberDelimited(num, delimiter, position):  #add delimiter to number
+
+    #error checking
+    if position < 0:
+        return "Error: Index out of bounds"
 
     num = str(num)
     position = len(num) - position
     #delimited number
     dnum = ""
+
+    #error checking
+    if position < 0:
+        return "Error: Index out of bounds"
 
     #iterate for each digit in num string
     for digit in num:

@@ -1,9 +1,9 @@
 # Number Library (Python)
 
 ##Functionalities
-* numToWords
-* wordsToNum
-* wordsToCurrency
-* numberDelimited
+* numToWords(int)
+* wordsToNum(string)
+* wordsToCurrency(string,currency)
+* numberDelimited(int,delimiter,position)
 
-####Python 3.4.3
+####Version used: Python 3.4.3
