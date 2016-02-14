@@ -40,15 +40,15 @@ def numToWords(num):    #convert a whole number to words
 
             #special case, prints using the special dict
             if specialCase == True:
-                print(special[place] + " ")
+                print(special[place] + " ", end="")
 
             #millionths place
             if (position == 7) and (place != '0'):
-                print(ones[place] + " " + "million")
+                print(ones[place] + " " + "million ", end="")
 
             #hundred thousandths place
             elif (position == 6) and (place != '0'):
-                print(ones[place] + " " + "hundred")
+                print(ones[place] + " " + "hundred ", end="")
                 ignore = False
 
             #ten thousandths place    
@@ -56,34 +56,34 @@ def numToWords(num):    #convert a whole number to words
                 if place == '1':
                     specialCase = True
                 else:
-                    print(tenths[place])
+                    print(tenths[place] + " ", end="")
                 ignore = False
 
             #thousandths place    
             elif (position == 4):
                 if specialCase == True:
-                    print("thousand")
+                    print("thousand" + " ", end="")
                     specialCase = False
                 else:
                     if ignore == False:
-                        print(ones[place] + " " + "thousand")
+                        print(ones[place] + " " + "thousand ", end="")
                     elif (ignore == True) & (place != '0'):
-                        print(ones[place] + " " + "thousand")
+                        print(ones[place] + " " + "thousand ", end="")
                         
             #hundredths place
             elif (position == 3) and (place != '0'):
-                print(ones[place] + " " + "hundred")
+                print(ones[place] + " " + "hundred ", end="")
 
             #tenths place  
             elif (position == 2) and (place != '0'):
                 if place == '1':
                     specialCase = True
                 else:
-                    print(tenths[place])
+                    print(tenths[place] + " ", end="")
 
             #ones place        
             elif (position == 1) & (place != '0') and (specialCase == False):
-                print(ones[place])
+                print(ones[place] + " ", end="")
 
             position = position - 1
             
