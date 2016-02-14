@@ -28,7 +28,9 @@ def numToWords(num):    #convert a whole number to words
     specialCase = False #for numbers 11-19
 
     if position > 7:
-        print("Error: Number too large")
+        return "Error: Number too large"
+    elif not(string.isdigit()):
+        return "Error: contains invalid characters"
     else:
 
         #zero special case
